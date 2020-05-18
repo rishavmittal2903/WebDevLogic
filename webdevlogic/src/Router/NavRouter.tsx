@@ -1,19 +1,24 @@
 import { BrowserRouter as Router , Switch , Route} from 'react-router-dom';
 import React from 'react';
 import App from "../App"
-const NavRouter:React.FC<any>=()=>{
+import { IntlProvider } from 'react-intl';
+import { IState } from '../Store/Root/RootState';
+import { connect } from 'react-redux';
+const NavRouter:React.FC<any>=(props)=>{
 
  return(
- 
+ <IntlProvider locale={props.intlData.locale} messages={props.intlData.messages[props.intlData.locale]}>
     <Router>
       <Switch>
           <Route exact={true} path='/' component={App}/>
       </Switch>
     </Router>
-  
+    </IntlProvider>
  )
 }
-export default NavRouter;
+const mapStateToProps = (state:IState) => ({ intlData: state.intl });
+
+export default connect(mapStateToProps)(NavRouter);
 
 
 
