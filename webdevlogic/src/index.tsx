@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import "../src/css/slick.css";
+import "../src/css/style.css"
 import * as serviceWorker from './serviceWorker';
 import {Provider} from "react-redux"
 import { store } from './Store/Root/ConfigureStore';
 import NavRouter from './Router/NavRouter';
+
 ReactDOM.render(
   <Provider store={store}>
     <NavRouter />

@@ -3,8 +3,18 @@ import {connect} from "react-redux"
 import * as actions from "../src/Store/Actions/TestActions"
 import './App.css';
 import { IState } from './Store/Root/RootState';
-import { FormattedMessage } from 'react-intl';
 import { injectIntl } from 'react-intl';
+import TopBar from './Component/TopBar';
+import MainSection from './Component/MainSection';
+import AboutMe from './Component/AboutMe';
+import Projects from './Component/Projects';
+import Counter from './Component/Counter';
+import Blogs from './Component/Blogs';
+import Footer from './Component/Footer';
+import Follow from './Component/Follow';
+
+
+
 
 interface IProps{
 testData:string,
@@ -13,17 +23,19 @@ intl:any
 }
 const App:React.FC<IProps>=(props)=>{
 
-
   return (
-    <div className="App">
-          {props.testData}<br/>
-      <button onClick={()=>props.testAction()}>Click here to change the name</button>
-      <br/>
-      TRANSLATION
-      <p>
-        <FormattedMessage id="test"/>
-      </p>
+    
+    <div>
+<TopBar/>
+<MainSection/>
+<AboutMe/>  
+<Projects/>
+  <Counter/>
+<Blogs/>
+<Follow/>
+<Footer/>
     </div>
+    
   );
 }
 const mapStateToProps=(state:IState)=>({
